@@ -1,3 +1,44 @@
 <other>
 <h1> Riot router is enabled.</h1>
+    <a href="#/">Back.</a>
+
+<!-- View Controller -->
+<script>
+var self    = this
+
+function dataName(){
+    return self.opts["dataIs"] != null ? self.opts["dataIs"] : self.root.localName
+}
+function logging( msg ){
+    console.log( '[' + dataName() + '] ' + msg )
+}
+
+logging('initialize')
+
+self.on('update', function() {
+    logging('update')
+})
+
+self.on('updated', function() {
+    logging('updated')
+})
+
+self.on('before-mount', function() {
+    logging('before-mount')
+})
+
+self.on('mount', function() {
+    logging('mount')
+})
+
+self.on('before-unmount', function() {
+    logging('before-unmount')
+})
+
+self.on('unmount', function() {
+    logging('unmount')
+})
+
+</script>
+
 </other>

@@ -16,11 +16,11 @@
         <application />
     </body>
             
-    <!-- riot.js v3.3.1 -->
-    <script type="text/javascript" src="assets/js/riot+compiler.min.js"></script>
+    <!-- riot.js -->
+    <script src="https://cdn.jsdelivr.net/riot/3.4.4/riot+compiler.min.js"></script>
 
-    <!-- route by riot v3.1.0 -->
-    <script type="text/javascript" src="assets/js/route.min.js"></script>
+    <!-- route by riot -->
+    <script src="https://cdn.jsdelivr.net/riot-route/3.1.1/route.min.js"></script>
     
     <!-- riot tags -->
     <script type="riot/tag" src="assets/tags/application.html"></script>
@@ -29,8 +29,11 @@
     <script>
         riot.compile(function(){
             riot.mount("application")
-
             route.start()
+
+            route( "/", function() {
+                riot.mount("application", "application" )
+            })
             route( "/other", function() {
                 riot.mount("application", "other" )
             })

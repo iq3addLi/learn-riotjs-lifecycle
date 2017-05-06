@@ -4,15 +4,52 @@
 <div>
     <h1>This page is riot.js 3.x base project.</h1>
     <a href="#/other">Link.</a>
+    <input type="button" onclick={ onClickButton } value="update">
+    <label>{ text }</label>
 </div>
 
 <!-- View Controller -->
 <script>
 var self    = this
 
-self.on('mount', function() {
+self.text = ""
 
+function dataName(){
+    return self.opts["dataIs"] != null ? self.opts["dataIs"] : self.root.localName
+}
+function logging( msg ){
+    console.log( '[' + dataName() + '] ' + msg )
+}
+
+logging('initialize')
+
+self.on('update', function() {
+    logging('update')
 })
+
+self.on('updated', function() {
+    logging('updated')
+})
+
+self.on('before-mount', function() {
+    logging('before-mount')
+})
+
+self.on('mount', function() {
+    logging('mount')
+})
+
+self.on('before-unmount', function() {
+    logging('before-unmount')
+})
+
+self.on('unmount', function() {
+    logging('unmount')
+})
+
+self.onClickButton = function( event ){
+    self.text = "Hello world!"
+}
 
 </script>
 
